@@ -21,3 +21,4 @@ export interface ConversationContext {
   category: NPSCategory;
   messages: Message[];
 }
+

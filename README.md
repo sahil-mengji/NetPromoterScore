@@ -1,169 +1,36 @@
-# NPS Conversational Agent
-
-A modern web application that collects Net Promoter Score (NPS) feedback and transitions to an AI-powered conversational interface for gathering deeper customer insights.
-
-## Features
-
-- **Interactive NPS Form**: Beautiful 0-10 score selection interface
-- **AI-Powered Conversations**: Seamless transition to chat interface after score selection
-- **Contextual Responses**: AI adapts tone and questions based on NPS category (Detractor, Passive, Promoter)
-- **Real-time Chat**: Instant responses powered by OpenAI GPT-4 or Google Gemini
-- **Modern UI**: Built with Tailwind CSS and Shadcn components
-- **TypeScript**: Full type safety throughout the application
-
-## Tech Stack
-
-- **Frontend**: Next.js 14 (App Router), React, TypeScript
-- **Styling**: Tailwind CSS, Shadcn/ui components
-- **AI Integration**: OpenAI GPT-4 or Google Gemini API
-- **State Management**: React hooks (useState, useEffect)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-### Prerequisites
+First, run the development server:
 
-- Node.js 18+ and npm
-- OpenAI API key OR Google Gemini API key
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd nps-conversational-agent
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Set up environment variables:
-```bash
-cp .env.local.example .env.local
-```
-
-4. Add your API key to `.env.local`:
-```bash
-# For OpenAI
-OPENAI_API_KEY=your_openai_api_key_here
-
-# OR for Gemini
-GOOGLE_API_KEY=your_google_api_key_here
-```
-
-5. Configure LLM provider in `src/app/api/chat/route.ts`:
-```typescript
-const LLM_PROVIDER = 'openai'; // or 'gemini'
-```
-
-6. Run the development server:
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-7. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Usage
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-1. **NPS Selection**: Users select a score from 0-10
-2. **Automatic Transition**: Form disappears and chat interface appears
-3. **AI Conversation**: AI asks contextual follow-up questions based on the score
-4. **Ongoing Chat**: Users can continue the conversation to provide detailed feedback
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Project Structure
+## Learn More
 
-```
-src/
-├── app/
-│   ├── api/chat/route.ts         # LLM API integration
-│   ├── page.tsx                  # Main page component
-│   ├── layout.tsx                # Root layout
-│   └── globals.css               # Global styles
-├── components/
-│   ├── ui/                       # Shadcn UI components
-│   ├── NPSForm.tsx              # NPS score selection form
-│   ├── ChatInterface.tsx        # Main chat interface
-│   └── ChatMessage.tsx          # Individual chat message
-├── lib/
-│   └── utils.ts                 # Utility functions
-└── types/
-    └── index.ts                 # TypeScript interfaces
-```
+To learn more about Next.js, take a look at the following resources:
 
-## Configuration
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### Switching LLM Providers
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-To switch between OpenAI and Gemini:
+## Deploy on Vercel
 
-1. Update the `LLM_PROVIDER` constant in `src/app/api/chat/route.ts`
-2. Add the corresponding API key to `.env.local`
-3. Restart the development server
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### Customizing AI Behavior
-
-Modify the `generateSystemPrompt` function in `src/app/api/chat/route.ts` to customize how the AI responds to different NPS categories.
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Add environment variables in Vercel dashboard
-4. Deploy
-
-### Other Platforms
-
-The application can be deployed to any platform that supports Next.js:
-- Netlify
-- Railway
-- Digital Ocean App Platform
-- AWS Amplify
-
-## API Reference
-
-### POST /api/chat
-
-Sends message to AI and receives response.
-
-**Request Body:**
-```json
-{
-  "npsScore": 8,
-  "category": "passive",
-  "messages": [
-    {
-      "id": "msg1",
-      "role": "user",
-      "content": "The service was okay",
-      "timestamp": "2024-01-01T12:00:00Z"
-    }
-  ],
-  "isInitial": false
-}
-```
-
-**Response:**
-```json
-{
-  "message": "Thanks for sharing that! What would have made your experience great instead of just okay?"
-}
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-If you encounter any issues or have questions, please open an issue on GitHub or contact the development team.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
