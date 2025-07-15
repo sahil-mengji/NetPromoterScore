@@ -189,7 +189,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
               </span>
             </div>
             <p className="mt-2 max-w-md text-gray-600 text-center leading-relaxed">
-              We're creating a personalized conversation experience based on
+              We&apos;re creating a personalized conversation experience based on
               your NPS score of{" "}
               <span className="font-semibold text-blue-600">{npsScore}/10</span>
             </p>
