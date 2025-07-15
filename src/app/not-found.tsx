@@ -21,8 +21,8 @@ export default function NotFound() {
         <div className="space-y-4">
           <h1 className="font-bold text-gray-800 text-2xl">Page Not Found</h1>
           <p className="text-gray-600 leading-relaxed">
-            Oops! The page you&apos;re looking for doesn&apos;t exist. It might have been
-            moved, deleted, or you entered the wrong URL.
+            Oops! The page you&apos;re looking for doesn&apos;t exist. It might
+            have been moved, deleted, or you entered the wrong URL.
           </p>
         </div>
 
