@@ -11,7 +11,12 @@ interface ChatRequest {
   isInitial: boolean;
 }
 
-async function callOpenAI(messages: any[], systemPrompt: string) {
+interface APIMessage {
+  role: string;
+  content: string;
+}
+
+async function callOpenAI(messages: APIMessage[], systemPrompt: string) {
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -33,7 +38,7 @@ async function callOpenAI(messages: any[], systemPrompt: string) {
   return data.choices[0].message.content;
 }
 
-async function callGemini(messages: any[], systemPrompt: string) {
+async function callGemini(messages: APIMessage[], systemPrompt: string) {
   const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GOOGLE_API_KEY}`, {
     method: 'POST',
     headers: {
